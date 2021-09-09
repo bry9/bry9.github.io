@@ -220,11 +220,10 @@ https://templatemo.com/tm-531-reflux
           The next step was to perform feature engineering on the processed dataset. This may be a bit surprising at first, because neural networks 
           by design already generate features as part of their training (hidden layers essentially do feature engineering). However, in this instance,
           it is quite difficult (if not impossible) for a model to learn from a raw time series whether a particular word was said. It would likely require a lot of training data, along with significant
-          computational power to train such a model. As such, further processing was performed on the synthesized dataset to convert it a form where a neaural network
-          could more easily learn patterns from (i.e. feature eningeering). Specifically, it was converted from a time series representation 
+          computational power to train such a model. As such, further processing was performed on the synthesized dataset to convert it a form where a neural network
+          could more easily learn patterns from (i.e. feature engineering). Specifically, it was converted from a time series representation 
           to a time-frequency representation via the spectrogram. A spectrogram computes the Fourier transform on segments of the time series to identify the frequency content of the signal as a function of time. 
-          This new spectrogram representation "decodes" the time series data into frequency components, which the RNN can hopefully pick up on. The idea is that different words will have 
-          different frequency components / magnitudes, and hopefully the RNN can learn to detect these patterns. As such, spectrograms were computed on the individual
+          The idea is that different words will have different frequency components / magnitudes, and hopefully the RNN can learn to detect these patterns. As such, spectrograms were computed on the individual
           training examples using segment lengths of 256 samples with 50% overlap and a Hann window. These spectrogram parameters can be considered hyperparameters, and sensitivity studies
           could be performed to assess performance impacts. The stated parameters are fairly standard Fourier transform computation parameters used in modern digital signal processing, and were found to give
           sufficiently satisfactory performance, as will be demonstrated later. Additionally, it is worth nothing that prior to spectrogram computation, the signals were decimated from 44.1 kHz (source sampling frequency) to 11 kHz. 
