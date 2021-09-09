@@ -191,7 +191,7 @@ https://templatemo.com/tm-531-reflux
           To create the training labels, a simple Python function was used to create a vector of zeros and ones. Zeros were used when no wake word was present, and ones were used
           for about a second after a wake word had been spoken. An example of a synthesized recording with its label is shown below.
           </p>
-          <div class="row">
+          <!--<div class="row">
             <div class="column">
               <figure>
                 <figcaption>Synthesized Training Example:</figcaption>
@@ -204,7 +204,17 @@ https://templatemo.com/tm-531-reflux
             <div class="column">
               <img src="assets/images/trigger_word_label.png" alt="Train example label" style="width:384px;height:256px;margin-left:5%">
             </div>
-          </div>      
+          </div>-->      
+          <figure class="half" style="display:flex">
+            <figure>
+            <figcaption>Synthesized Training Example:</figcaption>
+            <audio controls style="width: 120%;">
+              <source src="assets/audio/synthesized/train36.wav" type="audio/wav">
+            Your browser does not support the audio element.
+            </audio>           
+          </figure> 
+            <img src="assets/images/trigger_word_label.png" alt="Train example label" style="width:40%;margin-left:20%">
+          </figure>          
           <br>
           <p>
           The next step was to perform feature engineering on the processed dataset. This may be a bit surprising at first, because neural networks 
@@ -271,7 +281,21 @@ https://templatemo.com/tm-531-reflux
               Your browser does not support the audio element.
               </audio>            
             </div>
-          </div>
+          </div>-
+          <!--<figure class="half" style="display:flex">
+            <figure>
+            <audio controls >
+              <source src="assets/audio/chime/chime_output_ex1.wav" type="audio/wav" style="width:50%;margin-left:20%">
+            Your browser does not support the audio element.
+            </audio>     
+            </figure>
+            <figure>
+            <audio controls>      
+          <source src="assets/audio/chime/chime_output_ex2.wav" type="audio/wav" style="width:50%;margin-left:20%">
+          Your browser does not support the audio element.       
+          </audio>        
+          </figure>-->
+        </figure>
           <br>
           <p>
           Additional work could involve model and/or hyperparameter tweaks to further improve performance. Further data collection and synthesis could also be performed
@@ -307,7 +331,7 @@ https://templatemo.com/tm-531-reflux
         to be made for final scoring. A dummy regressor that predicted the average value of each digital engagement target was used to establish a 
         performance floor. Learning curves can be seen below for various iterations. 
         </p>        
-        <img src="assets/images/learning_curves.png" alt="Learning Curves" style="width:384px;height:256px;">
+        <img src="assets/images/learning_curves.png" alt="Learning Curves" style="width:50%">
         <br>
         <br>   
        <p>
@@ -355,7 +379,7 @@ https://templatemo.com/tm-531-reflux
         respectively. An example of a few images from the training set can be seen below. Note that the images appear warped and/or fuzzy due to the resizing that occurs as part of
         the image pre-processing that's required for input to the MobileNet model. More on this later.
         </p>
-        <img src="assets/images/headset_controllers.png" alt="Headset & Controllers" style="width:584px;height:456px;">
+        <img src="assets/images/headset_controllers.png" alt="Headset & Controllers" style="width:50%">
         <br>
         <br>
         <p>
