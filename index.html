@@ -228,7 +228,7 @@ https://templatemo.com/tm-531-reflux
           could be performed to assess performance impacts. The stated parameters are fairly standard Fourier transform computation parameters used in modern digital signal processing, and were found to give
           sufficiently satisfactory performance, as will be demonstrated later. Additionally, it is worth nothing that prior to spectrogram computation, the signals were decimated from 44.1 kHz (source sampling frequency) to 11 kHz. 
           The reason for this is as follows: the human voice, on average, has an upper frequency range of about 4 kHz; anything above this will not be indicative of whether a particular word was spoken. By decimating
-          down to 11 kHz, we are preserving frequency content that is valuable to our model while discarding uninformative information and simulatenously reducing dataset size (
+          down to 11 kHz, we are preserving frequency content that is valuable to our model while discarding uninformative information and simultaneously reducing dataset size (
           which reduces computational burden). A time history and spectrogram corresponding to the synthesized example above is shown below.
           </p>
           <img src="assets/images/spectrogram.png" alt="Spectrogram" style="width:50%">
@@ -260,7 +260,7 @@ https://templatemo.com/tm-531-reflux
           As is evidenced by the learning curves, the RNN does an excellent job of learning to identify the wake word, with an achieved validation F1 score of 97%.
           To further visualize the predictions of the model for a given input, two spectrograms with the resulting model predictions are shown below along with their ground truth labels. 
           The example on the left corresponds to the example considered above, and the example on the right is from the validation set (note the different background noise of a cafe). 
-          Additionally, the synthesized audio file was augmented with a chime everytime a trigger word was detected. The resulting audio samples are below their respective spectrograms / predictions. 
+          Additionally, the synthesized audio file was augmented with a chime every time a trigger word was detected. The resulting audio samples are below their respective spectrograms / predictions. 
           </p>
           <br>
           <figure class="half" style="display:flex">
@@ -322,10 +322,10 @@ https://templatemo.com/tm-531-reflux
         <p>
         A significant amount of effort was expended on the data pipeline due to the breadth and format of the data (~2 million data points). Pandas was used extensively for dataset merges, 
         feature engineering, and missing value processing. 
-        The processed data was then applied to multiple gradient boosting regressors (XGBRegressor), with one XGBRegressor model for each digitial engagement target. 
+        The processed data was then applied to multiple gradient boosting regressors (XGBRegressor), with one XGBRegressor model for each digital engagement target. 
         Gradient boosting machine models were selected for their minimal requirements on data scaling and historically proven performance. 
         Due to time constraints, a data-centric approach was taken to the machine learning solution process where effort was focused on improving data features 
-        rather than hyper-paramter model tuning. Several iterations of feature sets were run through a cross-validation (CV) scheme to assess if the updates
+        rather than hyper-parameter model tuning. Several iterations of feature sets were run through a cross-validation (CV) scheme to assess if the updates
         yielded performance gains or losses. The CV scheme was chosen carefully to coincide with the approximate monthly time frame where predictions were 
         to be made for final scoring. A dummy regressor that predicted the average value of each digital engagement target was used to establish a 
         performance floor. Learning curves can be seen below for various iterations. 
@@ -338,7 +338,7 @@ https://templatemo.com/tm-531-reflux
         if any actions could be taken to improve performance (such as elimination of unimportant features). Analysis of the feature importances showed
         several features related to player teams that were not being used by the XGBRegressor tree algorithm. Instead of eliminating these
         features outright, a clustering approach was taken. In the baseline model, each team is treated as an independent feature. In the clustering approach,
-        the teams are clustered into 5 groups based off a K-Means alogrithm with historical team payroll and fan attendance data that was scraped off the web. The result was a ~20%
+        the teams are clustered into 5 groups based off a K-Means algorithm with historical team payroll and fan attendance data that was scraped off the web. The result was a ~20%
         reduction in number of features, with slight performance (MAE) gains (iteration 2 to 3 in the learning curve). Example plots of a subset of the feature importances
         and resulting team clusters can be seen below.
        </p>
@@ -349,7 +349,7 @@ https://templatemo.com/tm-531-reflux
         <br>
         <br>         
         <p> 
-        Final placing is yet to be determined, but as of today, I placed 364th out of 852 teams. A respository containing the relevant Python code used for the project can be found
+        Final placing is yet to be determined, but as of today, I placed 364th out of 852 teams. A repository containing the relevant Python code used for the project can be found
         <a href="https://github.com/bry9/MLB_Kaggle_Competition"target="_blank">here</a>. 
        </p>
         <br>
@@ -401,9 +401,9 @@ https://templatemo.com/tm-531-reflux
         just using the source data as-is, and hopefully make the overall model more robust. Additionally, as alluded to previously, the source / augmented images 
         must be pre-processed prior to ingestion into the model. The MobileNet model expects the images to be of size (264, 264, 3), which is likely not the same 
         size the source images are in. This can be handled directly upon loading the dataset using the Keras 'image_dataset_from_directory' function. The final 
-        pre-processing step is to normalize the image pixel values to [-1, 1], the range expected by the MobileNet model. Conveninently, the MobileNet model 
+        pre-processing step is to normalize the image pixel values to [-1, 1], the range expected by the MobileNet model. Conveniently, the MobileNet model 
         includes a method to perform this normalization, and can be included as an extra layer in the built model. Note that both the data augmentation and data 
-        pre-processing can be included seperate from the model as part of the data pipeline, but in this case, it was included as part of the model pipeline. 
+        pre-processing can be included separate from the model as part of the data pipeline, but in this case, it was included as part of the model pipeline. 
         The data augmentation and data pre-processing layers are only executed during training, and are not used during validation / inference. An image of the 
         final model stackup that includes the data augmentation and pixel scaling is shown below. This workflow results in no single image being trained on more 
         than once.
@@ -415,7 +415,7 @@ https://templatemo.com/tm-531-reflux
         The next step was to train the model. An Adam optimizer with default parameters (as specified by Keras) was used with a binary cross-entropy loss function. 
         Monitored metrics were loss and accuracy. As previously mentioned, a 70%/30% training / validation split was used. The training was run with a batch size 
         of five for five epochs. The resulting loss and accuracy as a function of epoch is shown below. As can be seen, the model successfully (and quickly) learns 
-        how to accuractely classify the PS5 controllers and headsets.
+        how to accurately classify the PS5 controllers and headsets.
        </p>
        <figure class="half" style="display:flex">
         <img src="assets/images/cnn_loss.png" alt="Loss" style="width:50%;margin-right:2%">
