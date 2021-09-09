@@ -386,7 +386,7 @@ https://templatemo.com/tm-531-reflux
         were loaded into memory and "frozen". By "freezing" these weights, they are prevented from updating during subsequent training. A 2D average pooling layer was then added on top of the frozen 
         layers to reduce dependence on granular features learned from ImageNet. In other words, the pooling layer averages over the pre-learned granular features specific to the 1000 classes in ImageNet and "picks up" on the global features.
         An optional dropout layer can then be included after the 2D average pooling layer to reduce dependence on any specific global feature. A dropout layer with 20% dropout rate is included in this implementation as it was found to give satisfactory results.
-        Finally, a fully connected (FC) dense layer is added on top of the average pooling layer with a sigmoid activation function. This FC layer is necessary because 
+        Finally, a fully connected (FC) dense layer is added on top of the average pooling layer with a Sigmoid activation function. This FC layer is necessary because 
         it is where the model will learn to classify the new objects - the 2D pooling layer does not have any trainable parameters. An image of the model stack is shown below. As can be seen,
         it contains a total of 1281 trainable parameters, all contained within the FC layer.
         </p>
