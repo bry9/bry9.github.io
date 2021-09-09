@@ -200,7 +200,7 @@ https://templatemo.com/tm-531-reflux
               </figure>
             </div>
             <div class="column">
-              <img src="assets/images/trigger_word_label.png" alt="Train example label" style="width:384px;height:256px;">
+              <img src="assets/images/trigger_word_label.png" alt="Train example label" style="width:384px;height:256px;margin-left:5%">
             </div>
           </div>      
           <br>
@@ -240,14 +240,10 @@ https://templatemo.com/tm-531-reflux
           was used for training, and was performed on a GPU for 100 epochs with batch sizes of 64. 
           The resulting loss and F1 score as a function of epoch is shown below.
           </p>
-          <div class="row">
-            <div class="column">
-              <img src="assets/images/loss.png" alt="Loss" style="width:49%">
-            </div>
-            <div class="column">
-              <img src="assets/images/f1score.png" alt="F1 Score" style="width:49%">
-            </div>
-          </div>
+          <figure class="half" style="display:flex">
+            <img src="assets/images/loss.png" alt="Loss" style="width:50%;margin-right:2%">
+            <img src="assets/images/f1score.png" alt="F1 Score" style="width:50%">
+          </figure>
           <br>
           <p>
           As is evidenced by the learning curves, the RNN does an excellent job of learning to identify trigger words, with an achieved validation F1 score of 97%.
@@ -256,14 +252,10 @@ https://templatemo.com/tm-531-reflux
           Additionally, the synthesized audio file was augmented with a chime everytime a trigger word was detected. The resulting audio samples are below their respective spectrograms / predictions. 
           </p>
           <br>
-          <div class="row">
-            <div class="column">
-              <img src="assets/images/chime_output_ex1.png" alt="Example 1 Outputs" style="width:100%">
-            </div>
-            <div class="column">
-              <img src="assets/images/chime_output_ex2.png" alt="Example 2 Outputs" style="width:100%">
-            </div>
-          </div>
+          <figure class="half" style="display:flex">
+            <img src="assets/images/chime_output_ex1.png" alt="Example 1 Outputs" style="width:50%;margin-right:2%">
+            <img src="assets/images/chime_output_ex2.png" alt="Example 2 Outputs" style="width:50%">
+          </figure>
           <div class="row">
             <div class="column">
               <audio controls>
@@ -325,14 +317,10 @@ https://templatemo.com/tm-531-reflux
         reduction in number of features, with slight performance (MAE) gains (iteration 2 to 3 in the learning curve). Example plots of a subset of the feature importances
         and resulting team clusters can be seen below.
        </p>
-        <div class="row">
-          <div class="column">
-            <img src="assets/images/feat_imp.png" alt="Feature Importances" style="width:100%">
-          </div>
-          <div class="column">
-            <img src="assets/images/clusters.png" alt="Clusters" style="width:100%">
-          </div>
-        </div>
+       <figure class="half" style="display:flex">
+        <img src="assets/images/feat_imp.png" alt="Feature Importances" style="width:50%;margin-right:2%">
+        <img src="assets/images/clusters.png" alt="Clusters" style="width:50%">
+      </figure>
         <br>
         <br>         
         <p> 
@@ -404,14 +392,10 @@ https://templatemo.com/tm-531-reflux
         of five for five epochs. The resulting loss and accuracy as a function of epoch is shown below. As can be seen, the model successfully (and quickly) learns 
         how to accuractely classify the PS5 controllers and headsets.
        </p>
-        <div class="row">
-          <div class="column">
-            <img src="assets/images/cnn_loss.png" alt="Loss" style="width:100%">
-          </div>
-          <div class="column">
-            <img src="assets/images/cnn_accuracy.png" alt="F1 Score" style="width:100%">
-          </div>
-        </div>
+       <figure class="half" style="display:flex">
+        <img src="assets/images/cnn_loss.png" alt="Loss" style="width:50%;margin-right:2%">
+        <img src="assets/images/cnn_accuracy.png" alt="F1 Score" style="width:50%">
+      </figure>
         <br>
         <br>        
        <p>
