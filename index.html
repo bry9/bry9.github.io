@@ -399,7 +399,7 @@ https://templatemo.com/tm-531-reflux
         be realistic and model expected variations that could be encountered in future images. For this project, two perturbations were used on 
         each source image:  a random horizontal flip and a random rotation of up to 72 degrees. These perturbed images will provide more realistic variance than 
         just using the source data as-is, and hopefully make the overall model more robust. Additionally, as alluded to previously, the source / augmented images 
-        must be pre-processed prior to ingestion into the model. The MobilNet model expects the images to be of size (264, 264, 3), which is likely not the same 
+        must be pre-processed prior to ingestion into the model. The MobileNet model expects the images to be of size (264, 264, 3), which is likely not the same 
         size the source images are in. This can be handled directly upon loading the dataset using the Keras 'image_dataset_from_directory' function. The final 
         pre-processing step is to normalize the image pixel values to [-1, 1], the range expected by the MobileNet model. Conveninently, the MobileNet model 
         includes a method to perform this normalization, and can be included as an extra layer in the built model. Note that both the data augmentation and data 
