@@ -84,8 +84,8 @@ https://templatemo.com/tm-531-reflux
           <div class="section-heading">
             <h2>About Me</h2>
             <div class="line-dec"></div>
-            <span
-              >I am a structural engineer by trade, having earned B.S. and M.S. degrees in structural engineering from the
+            <span style="font-size:17px;line-height:200%">
+              I am a structural engineer by trade, having earned B.S. and M.S. degrees in structural engineering from the
               University of California, San Diego. I spent close to seven years working at The Aerospace Corporation as a
               structural analysis engineer - five as an individual contributor, and close to two as an engineering manager of a 
               small team. I recently decided to take the plunge and pursue a career in data science / machine learning. I have 
@@ -104,9 +104,8 @@ https://templatemo.com/tm-531-reflux
           <div class="section-heading">
             <h2>Projects*</h2>
             <div class="line-dec"></div>
-            <span>
+            <span style="font-size:17px;line-height:200%">
               <!--Selected projects that I have worked on over the past few months: -->
-            <br>
             <br>
             <a href="#RNN"> 1) Recurrent Neural Networks: Wake Word Detection</a>
             <br>
@@ -115,8 +114,9 @@ https://templatemo.com/tm-531-reflux
             <a href="#CNN"> 3) Convolutional Neural Networks: Image Classification using MobileNet Transfer Learning</a>
             <br>
             <br>
-            <p style="font-size:12px;"></p>
+            <p style="font-size:14px;">
             *For the best viewing experience, it is recommended to view this page on a laptop or desktop with a Google Chrome web browser.
+            </p>
             <br>
             <a id="RNN">
             </span>
@@ -146,7 +146,7 @@ https://templatemo.com/tm-531-reflux
               text-decoration: underline;
             }
             </style>
-          <span>
+          <span style="font-size:17px;line-height:200%">
           <u><b>Recurrent Neural Networks: Wake Word Detection</b></u>
           <br>
           </p>
@@ -155,7 +155,7 @@ https://templatemo.com/tm-531-reflux
           a recurrent neural network (RNN) model architecture was used. This allows for the flexibility of different sizes in the inputs and outputs, 
           in addition to sharing of learned features across time. 
           </p>
-          <p>
+          <p style="font-size:17px;line-height:200%">
           The first step was to synthesize a dataset for training the RNN. Various examples of the wake word ("activate" for this project) and negative words
           (any word other than the wake word) were recorded using a Macbook Air's onboard microphone. Background noise was also required, since in practice, it is highly unlikely 
           the wake word will always be spoken in a noise-free environment. Openly available, license free background noise from different environments was downloaded from the internet 
@@ -184,7 +184,7 @@ https://templatemo.com/tm-531-reflux
           Your browser does not support the audio element.
           </audio>
         </figure>
-          <p>
+          <p style="font-size:17px;line-height:200%">
           With the raw data now assembled, the next steps were to: 1) overlay the wake word, negative word, and background noise recordings into a single recording and 2) 
           create the training labels. PyDub (<a href="https://github.com/jiaaro/pydub"target="_blank">https://github.com/jiaaro/pydub</a>), a Python package for manipulating audio, 
           along with various Python helper functions, were used for these steps. To synthesize the audio sources, a background noise was selected at random (from the five available), 
@@ -217,7 +217,7 @@ https://templatemo.com/tm-531-reflux
             <img src="assets/images/trigger_word_label.png" alt="Train example label" style="width:40%;margin-left:20%">
           </figure>          
           <br>
-          <p>
+          <p style="font-size:17px;line-height:200%">
           The next step was to perform feature engineering on the processed dataset. This may be a bit surprising at first, because neural networks 
           by design already generate features as part of their training (hidden layers essentially do feature engineering). However, in this instance,
           it is quite difficult (if not impossible) for a model to learn from a raw time series whether a particular word was said. It would likely require a lot of training data, along with significant
@@ -235,7 +235,7 @@ https://templatemo.com/tm-531-reflux
           <img src="assets/images/spectrogram.png" alt="Spectrogram" style="width:50%">
           <br>
           <br>
-          <p>
+          <p style="font-size:17px;line-height:200%">
           With a fully assembled training dataset in the form of spectrograms now available, the next step was to train the RNN. The RNN architecture is summarized in the image below, and was implemented
           in Keras. To briefly summarize the network, a temporal convolution with 196 filters was used to reduce the number of time steps for computational efficiency purposes. The convolution
           results were run through a ReLU activation function, followed by a dropout layer with a 80% dropout rate.
@@ -245,7 +245,7 @@ https://templatemo.com/tm-531-reflux
           <img src="assets/images/RNN.png" alt="Spectrogram" style="width:50%">
           <br>
           <br>
-          <p>
+          <p style="font-size:17px;line-height:200%">
           For model training, an Adam optimizer with a binary cross-entropy loss function was used. Since the predictions can either be 1 or 0, binary cross-entropy is appropriate (as is a Sigmoid activation function). 
           A learning rate of 0.01 with decay of 0.01 and default beta parameters (as specified by Keras) was used with the Adam optimizer. Monitored metrics were loss, accuracy, precision, recall, and F1 score. Of most  
           importance was the F1 score, since accuracy was not a good gauge of performance due to the labels being heavily skewed toward 0. A training/validation split of 70%/30% 
@@ -257,7 +257,7 @@ https://templatemo.com/tm-531-reflux
             <img src="assets/images/f1score.png" alt="F1 Score" style="width:50%">
           </figure>
           <br>
-          <p>
+          <p style="font-size:17px;line-height:200%">
           As is evidenced by the learning curves, the RNN does an excellent job of learning to identify the wake word, with an achieved validation F1 score of 97%.
           To further visualize the predictions of the model for a given input, two spectrograms with the resulting model predictions are shown below along with their ground truth labels. 
           The example on the left corresponds to the example considered above, and the example on the right is from the validation set (note the different background noise of a cafe). 
@@ -297,7 +297,7 @@ https://templatemo.com/tm-531-reflux
           </figure>-->
         </figure>
           <br>
-          <p>
+          <p style="font-size:17px;line-height:200%">
           Additional work could involve model and/or hyperparameter tweaks to further improve performance. Further data collection and synthesis could also be performed
           to ensure the trigger word system meets performance requirements for different users (i.e. age group, gender, etc.) in all specified environments. All relevant 
           Python code used in this project can be found <a href="https://github.com/bry9/WakeWordDetection"target="_blank">here</a>.
@@ -308,19 +308,19 @@ https://templatemo.com/tm-531-reflux
         </span>
 
 
-        <span>
+        <span style="font-size:17px;line-height:200%">
         <a id="XGB"></a>
         <br> 
         <br> 
         <u><b>Kaggle Competition: Major League Baseball (MLB) Player Digital Engagement Forecasting</b></u>
         <br> 
-        <p>
+        <p style="font-size:17px;line-height:200%">
         <br> Participated in a Kaggle competition tasked with predicting four measures of digital engagement given historical MLB player and team data. 
         The training dataset was quite extensive, and included player performance and awards data, social media data, trade data, team performance data, 
         and standings data, all going back to 2018. For further logistical details about the competition, please visit the Kaggle competition webpage 
         <a href="https://www.kaggle.com/c/mlb-player-digital-engagement-forecasting"target="_blank">here</a>. 
         </p>
-        <p>
+        <p style="font-size:17px;line-height:200%"> 
         A significant amount of effort was expended on the data pipeline due to the breadth and format of the data (~2 million data points). Pandas was used extensively for dataset merges, 
         feature engineering, and missing value processing. 
         The processed data was then applied to multiple gradient boosting regressors (XGBRegressor), with one XGBRegressor model for each digital engagement target. 
@@ -334,7 +334,7 @@ https://templatemo.com/tm-531-reflux
         <img src="assets/images/learning_curves.png" alt="Learning Curves" style="width:50%">
         <br>
         <br>   
-       <p>
+       <p style="font-size:17px;line-height:200%">
         Feature importance, an embedded feature engineering method inherent to tree-based models, was used to assess the relative importance of features and determine
         if any actions could be taken to improve performance (such as elimination of unimportant features). Analysis of the feature importances showed
         several features related to player teams that were not being used by the XGBRegressor tree algorithm. Instead of eliminating these
@@ -349,7 +349,7 @@ https://templatemo.com/tm-531-reflux
       </figure>
         <br>
         <br>         
-        <p> 
+        <p style="font-size:17px;line-height:200%"> 
         Final placing is yet to be determined, but as of today, I placed 364th out of 852 teams. A repository containing the relevant Python code used for the project can be found
         <a href="https://github.com/bry9/MLB_Kaggle_Competition"target="_blank">here</a>. 
        </p>
@@ -361,19 +361,19 @@ https://templatemo.com/tm-531-reflux
        </span>
 
 
-        <span>
+        <span style="font-size:17px;line-height:200%">
         <a id="CNN"></a>
         <br> 
         <u><b>Convolutional Neural Networks: Image Classification using MobileNet Transfer Learning</b></u>
         <br>
         <br>
-        <p>
+        <p style="font-size:17px;line-height:200%">
         This project is inspired by tutorials found on the TensorFlow and Keras websites. A simple image classification model was built in Keras using transfer learning from a pre-trained MobileNet V2 model. The MobileNet model was pre-trained on a subset of ImageNet 
         consisting of ~1.4 million images and 1000 classes. The idea was to leverage the learned features from the "bottom" layers
         of the pre-trained MobileNet model, and transfer these to a new model. The "top" layer(s) of this new model could then be trained to classify images of a PlayStation 5 (PS5) controller and headset. It should be noted that a PS5 controller and headset are not among the 1000 classes
         present in the ImageNet database used to train the MobileNet model.
         </p>
-        <p>
+        <p style="font-size:17px;line-height:200%"> 
         The first step was to assemble a training dataset. Web scraping along with manual photos taken with an iPhone 10 were used to assemble a dataset of 100 images,
         with 50 for each class. Different orientations and backgrounds / locations were used to ensure diversity in the dataset. A 70% / 30% split was used for training and validation, 
         respectively. An example of a few images from the training set can be seen below. Note that the images appear warped and/or fuzzy due to the resizing that occurs as part of
@@ -382,7 +382,7 @@ https://templatemo.com/tm-531-reflux
         <img src="assets/images/headset_controllers.png" alt="Headset & Controllers" style="width:50%">
         <br>
         <br>
-        <p>
+        <p style="font-size:17px;line-height:200%">
         With the training dataset now assembled, the next step was to create the model. Pre-trained MobileNet V2 model weights, excluding the top (classification) layer, 
         were loaded into memory and "frozen". By "freezing" these weights, they are prevented from updating during subsequent training. A 2D average pooling layer was then added on top of the frozen 
         layers to reduce dependence on granular features learned from ImageNet. In other words, the pooling layer averages over the pre-learned granular features specific to the 1000 classes in ImageNet and "picks up" on the global features.
@@ -394,7 +394,7 @@ https://templatemo.com/tm-531-reflux
         <img src="assets/images/Model_stack.png" alt="Model stack" style="width:60%">
         <br>
         <br>
-        <p>
+        <p style="font-size:17px;line-height:200%">
         Before moving on to model training, two important topics to briefly discuss is data augmentation and data pre-processing. In image classification problems, it is often
         feasible (and good practice) to augment the training dataset with additional images derived from applying perturbations to the source images. These perturbations should 
         be realistic and model expected variations that could be encountered in future images. For this project, two perturbations were used on 
@@ -412,7 +412,7 @@ https://templatemo.com/tm-531-reflux
         <img src="assets/images/Model_stack_final.png" alt="Model stack" style="width:60%">
         <br>
         <br>
-        <p>
+        <p style="font-size:17px;line-height:200%">
         The next step was to train the model. An Adam optimizer with default parameters (as specified by Keras) was used with a binary cross-entropy loss function. 
         Monitored metrics were loss and accuracy. As previously mentioned, a 70%/30% training / validation split was used. The training was run with a batch size 
         of five for five epochs. The resulting loss and accuracy as a function of epoch is shown below. As can be seen, the model successfully (and quickly) learns 
@@ -424,7 +424,7 @@ https://templatemo.com/tm-531-reflux
       </figure>
         <br>
         <br>        
-       <p>
+       <p style="font-size:17px;line-height:200%">
         Further work (although it'd be overkill for this project) could include fine tuning of the "frozen" top-most layers to further enhance performance. 
         This type of tuning would likely be necessary for more challenging problems involving more classes. A repository containing the notebook used for this 
         project can be found <a href="https://github.com/bry9/ImageClassification_MobileNet"target="_blank">here</a>. 
@@ -436,7 +436,7 @@ https://templatemo.com/tm-531-reflux
         <div class="container">
           <div class="section-heading">
             <h2>Contact Me</h2>
-          <span>
+          <span style="font-size:17px;line-height:200%">
             <br>
           Connect with me on <a href="https://linkedin.com/in/bryan-mariscal-64914049"target="_blank">LinkedIn</a>. 
           <br>
