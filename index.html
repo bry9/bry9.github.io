@@ -395,9 +395,9 @@ https://templatemo.com/tm-531-reflux
         <br>
         <p>
         Before moving on to model training, two important topics to briefly discuss is data augmentation and data pre-processing. In image classification problems, it is often
-        feasible (and good practice) to augment the training dataset with additional images derived from applying perturbations to the source images. These perturpations should 
-        be realistic and model expected variations that could be encountered in future images. For this project, two perturbation were used on 
-        each source image:  a random horizontal flip and a random rotation of up to 72 degrees. These pertured images will provide more realistic variance than 
+        feasible (and good practice) to augment the training dataset with additional images derived from applying perturbations to the source images. These perturbations should 
+        be realistic and model expected variations that could be encountered in future images. For this project, two perturbations were used on 
+        each source image:  a random horizontal flip and a random rotation of up to 72 degrees. These perturbed images will provide more realistic variance than 
         just using the source data as-is, and hopefully make the overall model more robust. Additionally, as alluded to previously, the source / augmented images 
         must be pre-processed prior to ingestion into the model. The MobilNet model expects the images to be of size (264, 264, 3), which is likely not the same 
         size the source images are in. This can be handled directly upon loading the dataset using the Keras 'image_dataset_from_directory' function. The final 
